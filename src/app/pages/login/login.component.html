@@ -1,0 +1,36 @@
+<div class="container login">
+    <div class="row center">        
+        <div class="login-form">
+                
+            <img src="./assets/img/coderhouse-logo.png" class="logo" alt="coderhouse logo">
+
+            <p id="title">Administración de alumnos</p>
+            <!-- <form [formGroup]="form" class="form" (ng-submit)="login()"> -->
+            <form [formGroup]="form" class="form">
+                <mat-form-field class="input" appearance="outline">
+                    <mat-label>Usuario</mat-label>
+                    <input type="text" matInput formControlName="user">
+                    <mat-error *ngIf="form.get('user')!.errors && form.get('user')!.touched">
+                        <mat-error *ngIf="form.get('user')!.hasError('required')">
+                          Es un campo requerido.
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+    
+                <mat-form-field class="input" appearance="outline">
+                    <mat-label>Contraseña</mat-label>
+                    <input type="password" matInput formControlName="pass">
+                    <mat-error *ngIf="form.get('pass')!.errors && form.get('pass')!.touched">
+                        <mat-error *ngIf="form.get('pass')!.hasError('required')">
+                          Es un campo requerido.
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+            </form>
+
+            <div id="bottom-form">
+               <button mat-raised-button color="primary" [disabled]="form.invalid" type="submit" >Ingresar</button>                
+            </div> 
+        </div>   
+    </div>         
+</div>

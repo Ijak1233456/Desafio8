@@ -1,0 +1,37 @@
+<div class="container mb-4">
+    <h2 class="mb-5">Lista de alumnos</h2>
+    <ol>
+        <div *ngFor="let alumno of listaAlumnos">
+            <li appCustomCard>
+                <div>Nombre: {{ alumno.nombre | titlecase }} </div>
+                <div>Edad: {{calcularEdad(alumno.fechaNac)}}</div>
+                <div>País: {{alumno.pais}}</div>
+                <div>Fecha de nacimiento: {{alumno.fechaNac | date:'fullDate'}}</div>
+                <br>
+            </li>
+        </div>
+    </ol>
+    <br>
+    <h3 [style.color]="paisElegido === 'Perú'? '#fc0303': '#000000'">Filtro ngIf: {{paisElegido}}</h3>
+    <ol>
+        <div *ngFor="let alumno of listaAlumnos">
+        <li appCustomCard  *ngIf="alumno.pais === 'Perú'">
+            <div>Nombre: {{ alumno.nombre | titlecase }} </div>
+            <div>Edad: {{calcularEdad(alumno.fechaNac)}}</div>
+            <div>País: {{alumno.pais}}</div>
+            <div>Fecha de nacimiento: {{alumno.fechaNac | date:'fullDate'}}</div>
+            <br>
+        </li>
+        </div>
+    </ol>
+    <br>
+    <h3>Filtro ngSwitch Países: Brasil, USA</h3>
+    <div *ngFor="let alumno of listaAlumnos">
+        <div [ngSwitch]="alumno.pais">
+            <div *ngSwitchCase="'Brasil'">El alumno {{alumno.nombre}} es de <span [ngStyle]="{'color':'#009739', 'font-weight':'600'}">{{alumno.pais}}</span></div>
+            <div *ngSwitchCase="'USA'">El alumno {{alumno.nombre}} es de <span [ngStyle]="{'color':'#070cad','font-weight':'600'}">{{alumno.pais}}</span></div>
+        </div>
+    </div>
+    
+</div>
+

@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+.logo{
+    max-width: 40%;
+}
+
+.login-form{
+    min-height: 60vh;
+    margin: 20vh auto;
+    max-width: 428px;
+    padding: 20px 0 20px 0;
+    border-radius: 15px;
+    background-color: #fff;
+    box-shadow: 5px 10px 10px #aaaaaa;
+}
+
+.center{
+    text-align: center;
+}
+
+.form{
+    margin: 25px auto;
+}
+
+.input{
+    width: 70%;
+}
+
+#title{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 40px 0 40px 0;
+}
+
+#bottom-form{
+    width: fit-content;
+    display: inline-block;
+}

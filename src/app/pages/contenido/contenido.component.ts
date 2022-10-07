@@ -7,8 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContenidoComponent implements OnInit {
 
-  textoBtn: string = "Comprar";
-
   constructor() { }
 
   ngOnInit(): void {
