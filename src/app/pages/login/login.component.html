@@ -1,4 +1,4 @@
-<div class="container login">
+<div class="container-fluid login" [style.background-image]="'url(./assets/img/beige-tiles.png)'">
     <div class="row center">        
         <div class="login-form">
                 
@@ -29,7 +29,7 @@
             </form>
 
             <div id="bottom-form">
-               <button mat-raised-button color="primary" [disabled]="form.invalid" type="submit" >Ingresar</button>                
+               <button mat-raised-button color="primary" [disabled]="form.invalid" type="submit" (click)="login()">Ingresar</button>                
             </div> 
         </div>   
     </div>         
