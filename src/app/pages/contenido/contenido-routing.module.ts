@@ -5,10 +5,7 @@ import { ListaAlumnosComponent } from '../lista-alumnos/lista-alumnos.component'
 import { ContenidoComponent } from './contenido.component';
 
 const routes: Routes = [
-  { path: '', component: ContenidoComponent, children: [
-    { path: 'producto',  component: ProductoComponent },
-    { path: 'lista-alumnos', component: ListaAlumnosComponent }
-  ]}  
+  { path: '', component: ContenidoComponent }  
 ];
 
 @NgModule({

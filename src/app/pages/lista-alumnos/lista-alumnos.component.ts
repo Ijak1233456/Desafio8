@@ -1,6 +1,8 @@
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Alumno } from 'src/app/models/alumno';
+import { ListaService } from './services/lista.service';
 
 @Component({
   selector: 'app-lista-alumnos',
@@ -8,24 +10,21 @@ import { Alumno } from 'src/app/models/alumno';
   styleUrls: ['./lista-alumnos.component.css']
 })
 export class ListaAlumnosComponent implements OnInit {
+  
+  alumnos$!: Observable<Alumno[]>;
 
-  listaAlumnos: Alumno[] = [
-    {idUsuario: 1, nombre: 'marcos',  fechaNac: new Date("1998/05/26"), pais: 'Brasil'},
-    {idUsuario: 2, nombre: 'luciana', fechaNac: new Date("1998/05/26"), pais: 'Mexico'},
-    {idUsuario: 3, nombre: 'renato', fechaNac: new Date("1998/05/26"), pais: 'Perú'},
-    {idUsuario: 4, nombre: 'pedro', fechaNac: new Date("1998/05/26"), pais: 'Uruguay'},
-    {idUsuario: 5, nombre: 'mariah', fechaNac: new Date("1998/05/26"), pais: 'USA'}
-  ];
   columnas: string[] = ['id','nombre', 'fecha Nac', 'pais', 'acciones'];
-  dataSource: MatTableDataSource<Alumno> = new MatTableDataSource<Alumno>(this.listaAlumnos);
+
+  //dataSource: MatTableDataSource<Alumno> = new MatTableDataSource<Alumno>(this.alumnos$);
 
   paisElegido: string = 'Perú';
 
-  constructor() {
+  constructor(private listaService: ListaService) {
   }
 
-  ngOnInit(): void {
-    this.calcularEdad(this.listaAlumnos[0].fechaNac);
+  ngOnInit(): void { 
+    this.alumnos$ = this.listaService.obtenerAlumnos();
+    //this.calcularEdad(this.listaAlumnos[0].fechaNac);
   }
 
   calcularEdad(fecha: Date){
