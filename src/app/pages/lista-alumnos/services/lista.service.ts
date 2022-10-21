@@ -9,10 +9,10 @@ export class ListaService {
 
   private listaAlumnos: Alumno[] = [
     {idUsuario: 1, nombre: 'marcos',  fechaNac: new Date("1998/05/26"), pais: 'Brasil'},
-    {idUsuario: 2, nombre: 'luciana', fechaNac: new Date("1998/05/26"), pais: 'Mexico'},
-    {idUsuario: 3, nombre: 'renato', fechaNac: new Date("1998/05/26"), pais: 'Perú'},
-    {idUsuario: 4, nombre: 'pedro', fechaNac: new Date("1998/05/26"), pais: 'Uruguay'},
-    {idUsuario: 5, nombre: 'mariah', fechaNac: new Date("1998/05/26"), pais: 'USA'}
+    {idUsuario: 2, nombre: 'luciana', fechaNac: new Date("1997/05/26"), pais: 'Mexico'},
+    {idUsuario: 3, nombre: 'renato', fechaNac: new Date("1996/05/26"), pais: 'Perú'},
+    {idUsuario: 4, nombre: 'pedro', fechaNac: new Date("1995/05/26"), pais: 'Uruguay'},
+    {idUsuario: 5, nombre: 'mariah', fechaNac: new Date("1994/05/26"), pais: 'USA'}
   ];
 
   private alumnosSubject: BehaviorSubject<Alumno[]>;
