@@ -5,11 +5,11 @@ import { Alumno } from 'src/app/models/alumno';
 import { ListaService } from './services/lista.service';
 
 @Component({
-  selector: 'app-lista-alumnos',
-  templateUrl: './lista-alumnos.component.html',
-  styleUrls: ['./lista-alumnos.component.css']
+  selector: 'app-listar-alumnos',
+  templateUrl: './listar-alumnos.component.html',
+  styleUrls: ['./listar-alumnos.component.css']
 })
-export class ListaAlumnosComponent implements OnInit, OnDestroy {
+export class ListarAlumnosComponent implements OnInit, OnDestroy {
   
   alumnos$!: Observable<Alumno[]>;
 
