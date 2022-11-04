@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { Alumno } from 'src/app/models/alumno';
@@ -6,6 +7,8 @@ import { Alumno } from 'src/app/models/alumno';
   providedIn: 'root'
 })
 export class ListaService {
+
+  protected readonly api = "https://6363331137f2167d6f743c3b.mockapi.io/api/";
 
   private listaAlumnos: Alumno[] = [
     {idUsuario: 1, nombre: 'marcos',  fechaNac: new Date("1998/05/26"), pais: 'Brasil'},
@@ -17,18 +20,19 @@ export class ListaService {
 
   private alumnosSubject: BehaviorSubject<Alumno[]>;
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.alumnosSubject = new BehaviorSubject<Alumno[]>(this.listaAlumnos);
   }
 
   obtenerAlumnos(): Observable<Alumno[]>{
-    return this.alumnosSubject.asObservable();
+    //return this.alumnosSubject.asObservable();
+    return this.http.get<Alumno[]>(this.api + "/alumnos");
   }
 
-  calcularEdad(fechaNac: Date): Observable<Alumno[]>{
+  // calcularEdad(fechaNac: Date): Observable<Alumno[]>{
 
-    return this.obtenerAlumnos().pipe(
-      map((cursos: Alumno[]) => cursos.filter((alumno: Alumno) => alumno.fechaNac === fechaNac))
-    )
-  }
+  //   return this.obtenerAlumnos().pipe(
+  //     map((cursos: Alumno[]) => cursos.filter((alumno: Alumno) => alumno.fechaNac === fechaNac))
+  //   )
+  // }
 }

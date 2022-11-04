@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AutenticacionModule } from './autenticacion/autenticacion.module';
 import { CoreModule } from './core/core.module';
 import { AlumnosModule } from './alumnos/alumnos.module';
+import { HttpClientModule } from '@angular/common/http';
 registerLocaleData(localeEsAr, 'es-Ar');
 
 
@@ -28,6 +29,7 @@ registerLocaleData(localeEsAr, 'es-Ar');
     
     AppRoutingModule,
     NgbModule,
+    HttpClientModule
        
   ],
   providers: [{provide: LOCALE_ID, useValue: 'es-Ar'}],

@@ -27,19 +27,19 @@ export class ListarAlumnosComponent implements OnInit, OnDestroy {
   ngOnInit(): void { 
     this.alumnos$ = this.listaService.obtenerAlumnos();
 
-    this.alumno = this.listaService.obtenerAlumnos().subscribe(
-      {
-        next: (alumnos: Alumno[]) => {
+    // this.alumno = this.listaService.obtenerAlumnos().subscribe(
+    //   {
+    //     next: (alumnos: Alumno[]) => {
 
-          let edades: any;
-          alumnos.map(alumno => {
-            edades = this.calcularEdad(alumno.fechaNac);
-            console.log(edades);
-          });
+    //       let edades: any;
+    //       alumnos.map(alumno => {
+    //         edades = this.calcularEdad(alumno.fechaNac);
+    //         console.log(edades);
+    //       });
           
-        },
-      }
-    );
+    //     },
+    //   }
+    // );
 
     
     //this.calcularEdad(this.listaAlumnos[0].fechaNac);
