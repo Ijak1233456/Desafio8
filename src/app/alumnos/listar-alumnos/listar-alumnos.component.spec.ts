@@ -25,12 +25,9 @@ describe('ListaAlumnosComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('El formulario se mantiene invalido cuando ingreso unicamente la comision del curso', () => {
-    const formulario = component.formulario;
-    const comision = formulario.controls['comision'];
+  it('El array de columnas contiene parametros al inicializarse el componente', () => {
+    const arrayColumnas = component.columnas;
 
-    comision.setValue('32350');
-
-    expect(formulario.valid).toBeFalse();
+    expect(arrayColumnas).toBeTrue();
   })
 });
