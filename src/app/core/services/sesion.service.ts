@@ -1,7 +1,8 @@
+import { Sesion } from './../../models/sesion';
 import { Usuario } from './../../models/usuario';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,16 @@ export class SesionService {
 
   protected usr!: string;
   protected contrasena!: string;
+  protected sesion!: Sesion;
 
-  constructor(private http: HttpClient) { }
+  sesionSubject!: BehaviorSubject<Sesion>;
+
+  constructor(private http: HttpClient) {
+    const sesion: Sesion = {
+      sesionActiva: false
+    };
+    this.sesionSubject = new BehaviorSubject(sesion);
+  }
 
   setCredenciales(usr: string, contrasena: string){
     this.usr = usr;
@@ -21,10 +30,34 @@ export class SesionService {
   }
 
   getCredenciales(){
-    return this.usr;
-  }  
+    const credenciales = {
+      "usr": this.usr,
+      "contrasena": this.contrasena
+    }
+    return credenciales;
+  }
 
-  obtenerUsuarios(): Observable<Usuario[]>{
-    return this.http.get<Usuario[]>(this.api + "sesion");
+  setSesion(usuario: Usuario): void{
+    let sesion: Sesion = {
+      usuario: usuario,
+      sesionActiva: true
+    }
+    this.sesion = sesion;
+  }
+
+  getSesion(): Observable<Sesion>{
+    return this.sesionSubject.asObservable();
+  }
+
+  login(usr: string, contrasena: string): Observable<Usuario>{
+    return this.http.get<Usuario[]>(this.api + "sesion").pipe(
+      map((usuarios: Usuario[]) => {
+        return usuarios.filter((u: Usuario) => u.usuario === usr && u.contrasena === contrasena)[0]
+      })
+    );
+  }
+
+  obtenerUsuarios(){
+    return this.http.get(this.api + "sesion");
   }
 }

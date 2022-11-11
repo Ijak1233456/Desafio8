@@ -1,3 +1,4 @@
+import { Sesion } from './../../../models/sesion';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -24,8 +25,8 @@ export class LoginComponent implements OnInit {
 
   private buildForm() {
     this.form = this.formBuilder.group({
-      user:['', Validators.required],
-      pass:['', Validators.required]
+      user:['Deshawn.Turner', Validators.required],
+      pass:['V4t1aMLegb1k82B', Validators.required]
     });
   }
 
@@ -34,12 +35,15 @@ export class LoginComponent implements OnInit {
     let user = this.form.controls['user'].value;
     let contrasena = this.form.controls['pass'].value;
 
-    // this.sesionService.iniciarSesion().pipe(
-    //   map((usuario: Usuario) => { 
-    //     usuario.usuario === this.form.controls['user'].value && usuario.contrasena === this.form.controls['pass'].value
-    //   })
-    // ).subscribe()
-    this.sesionService.setCredenciales(user, contrasena);
+    this.sesionService.login(user, contrasena).subscribe({
+      next: (usuario) => {
+        if (usuario){
+          console.log(usuario);
+          
+          this.sesionService.setSesion(usuario);
+        }
+      }
+    });
 
     this.router.navigate(['/home']);
   }

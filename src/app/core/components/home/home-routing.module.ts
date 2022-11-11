@@ -10,7 +10,7 @@ import { AutenticacionGuard } from '../../guards/autenticacion.guard';
 
 const routes: Routes = [
   { path: 'home', redirectTo: 'home/listar-alumnos', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent, canActivate: [AutenticacionGuard] ,children: [
+  { path: 'home', component: HomeComponent, canActivate: [AutenticacionGuard],children: [
     { path: 'producto', component: ProductoComponent },
     { path: 'listar-alumnos', component: ListarAlumnosComponent},
     { path: 'agregar-alumnos', component: AgregarAlumnosComponent},

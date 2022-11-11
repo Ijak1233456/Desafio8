@@ -10,7 +10,7 @@ import { SesionService } from '../services/sesion.service';
 export class AutenticacionGuard implements CanActivate {
 
   constructor(
-    private sesion: SesionService,
+    private sesionService: SesionService,
     private router: Router
   ){ }
 
@@ -18,22 +18,20 @@ export class AutenticacionGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      // return this.sesion.obtenerUsuarios().pipe(
-      //   map((usuarios: Usuario[]) => {
 
-      //     usuarios.filter((usuario: Usuario) => {
-      //       if(usuario.usuario == this.sesion.getCredenciales().){
-      //         return true;
-      //       }else{
-      //         this.router.navigate(['autenticacion/login']);
-      //         return false;
-      //       }
-      //     })
-          
-      //   })
-      // );
+      
+      this.sesionService.getSesion().subscribe(console.log);
 
-      return true;
+      if (this.sesionService.getSesion()) {
+        console.log(this.sesionService.getSesion());
+        
+        return true;
+      } else {
+        this.router.navigate(['']);
+        return false;
+      }
+      
+
   }
   
 }

@@ -17,7 +17,7 @@ describe('MenuComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Se crea el componente', () => {
     expect(component).toBeTruthy();
   });
 });
