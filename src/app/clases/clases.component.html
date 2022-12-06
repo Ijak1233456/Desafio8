@@ -1,0 +1,13 @@
+<div class="container">
+    <h2>Detalles del curso: {{curso.nombre}}</h2>
+    <br>
+    <p><b>Fecha de inicio: </b>{{curso.fechaInicio | date: "dd/MM/yyyy"}}</p>
+    <p><b>Fecha de fin: </b>{{curso.fechaFin | date: "dd/MM/yyyy"}}</p>
+    
+    <div mat-subheader>Lista de clases</div>
+    <mat-list role="list" *ngFor="let clase of clases">
+        <mat-list-item role="listitem">
+            <span>{{clase.nro + " - " +clase.nombre}}</span>
+        </mat-list-item>
+    </mat-list>
+</div>

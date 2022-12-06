@@ -1,0 +1,29 @@
+<h2>Editar Alumno</h2>
+<div class="center">
+    <form [formGroup]="form" class="form">
+        <mat-form-field class="input" appearance="outline">
+            <mat-label>Nombres</mat-label>
+            <input type="text" matInput formControlName="nombre">
+        </mat-form-field>
+
+        <mat-form-field class="input" appearance="outline">
+            <mat-label>Apellidos</mat-label>
+            <input type="text" matInput formControlName="apellido">
+        </mat-form-field>
+
+        <mat-form-field class="input" appearance="outline">
+            <mat-label>Fecha de nacimiento</mat-label>
+            <input matInput formControlName="fechaNac" [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+        <mat-form-field class="input" appearance="outline">
+            <mat-label>País</mat-label>
+            <input type="text" matInput formControlName="pais">
+        </mat-form-field>
+    </form>
+
+    <button mat-raised-button color="primary" (click)="agregar()" cdkFocusInitial>Guardar</button>
+</div>

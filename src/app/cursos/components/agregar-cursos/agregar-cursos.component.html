@@ -1,0 +1,58 @@
+<h2 mat-dialog-title>Agregar curso</h2>
+<div class="center">
+    <form [formGroup]="form" class="form">
+        <mat-form-field class="input" appearance="outline">
+            <mat-label>Nombre</mat-label>
+            <input type="text" matInput formControlName="nombre">
+        </mat-form-field>
+
+        <mat-form-field class="input" appearance="outline">
+            <mat-label>Comision</mat-label>
+            <input type="text" matInput formControlName="comision">
+        </mat-form-field>
+
+        <mat-form-field class="input" appearance="outline">
+            <mat-label>Profesor</mat-label>
+            <input type="text" matInput formControlName="profesor">
+        </mat-form-field>
+
+        <mat-form-field class="input" appearance="outline">
+            <mat-label>Fecha de inicio</mat-label>
+            <input matInput formControlName="fechaInicio" [matDatepicker]="pickerFI">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="pickerFI"></mat-datepicker-toggle>
+            <mat-datepicker #pickerFI></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="input" appearance="outline">
+            <mat-label>Fecha fin</mat-label>
+            <input matInput formControlName="fechaFin" [matDatepicker]="pickerFF">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="pickerFF"></mat-datepicker-toggle>
+            <mat-datepicker #pickerFF></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="input" appearance="outline">
+            <mat-label>Ingrese clase</mat-label>
+            <input type="text" matInput formControlName="clase">
+        </mat-form-field>
+
+        <div class="center">
+            <button id="btnAgregar" mat-stroked-button align="center" (click)="agregarClase()">agregar clase</button>
+        </div>
+
+        <mat-list role="list">
+            <div mat-subheader>Lista de clases</div>
+            <mat-list-item *ngFor="let clase of clases; let pos = index">
+                <span>{{pos + 1 + " - " +clase.nombre + "   "}}</span>
+                <button mat-icon-button (click)="eliminarClase(pos)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </mat-list-item>
+        </mat-list>
+
+        <mat-slide-toggle class="input pt-1" formControlName="inscripcionAbierta">Inscripcion abierta</mat-slide-toggle>   
+    </form>
+
+    <button mat-raised-button color="primary" (click)="agregar()" cdkFocusInitial>Guardar</button>
+</div>

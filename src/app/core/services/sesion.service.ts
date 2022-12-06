@@ -42,7 +42,8 @@ export class SesionService {
       usuario: usuario,
       sesionActiva: true
     }
-    this.sesion = sesion;
+    //this.sesion = sesion;
+    this.sesionSubject.next(sesion);
   }
 
   getSesion(): Observable<Sesion>{

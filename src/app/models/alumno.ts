@@ -1,6 +1,7 @@
 export interface Alumno{
-    idUsuario: number;
+    id?: number;
     nombre: string;
+    apellido: string;
     fechaNac: Date;
     pais: string;
 }

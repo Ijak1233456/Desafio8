@@ -1,0 +1,21 @@
+.login-form{
+    min-height: 60vh;
+    margin: 20vh auto;
+    max-width: 428px;
+    padding: 20px 0 20px 0;
+    border-radius: 15px;
+    background-color: #fff;
+    box-shadow: 5px 10px 10px #aaaaaa;
+}
+
+.center{
+    text-align: center;
+}
+
+.form{
+    margin: 25px auto;
+}
+
+.input{
+    width: 70%;
+}

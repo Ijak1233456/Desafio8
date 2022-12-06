@@ -2,13 +2,17 @@
 
     <h4>Opciones:</h4>
 
-    <div class="row p-2">
-        <!-- <button class="col-12 btn btn-outline-dark mt-1" routerLink="producto">Desafío 1 - Productos</button> -->
-        <button class="col-12 btn btn-outline-dark mt-1" routerLink="listar-alumnos">Listar alumnos</button>
-        <button class="col-12 btn btn-outline-dark mt-1" routerLink="agregar-alumnos">Agregar alumno</button>
-        <!-- <button class="col-12 btn btn-outline-dark mt-1" routerLink="producto">Modificar alumno</button> -->
-        <button class="col-12 btn btn-outline-dark mt-1" routerLink="editar-alumnos">Editar alumno</button>
-        <button class="col-12 btn btn-outline-dark mt-1" routerLink="eliminar-alumnos">Eliminar alumno</button>
+    <div class="row p-2" *ngIf="tipo==='alumno'">
+        <button class="col-12 btn btn-outline-dark mt-1" routerLink="listar-alumnos" >Listar alumnos</button>
+        <button class="col-12 btn btn-outline-dark mt-1" routerLink="agregar-alumnos" >Agregar alumno</button>
     </div>
+
+    <div class="row p-2" *ngIf="tipo==='curso'">
+        <button class="col-12 btn btn-outline-dark mt-1" routerLink="listar-cursos" >Listar cursos</button>
+        <button class="col-12 btn btn-outline-dark mt-1" routerLink="agregar-cursos" >Agregar curso</button>
+    </div>
+
+    <!-- <button class="col-12 btn btn-outline-dark mt-1" routerLink="listar-alumnos">Alumnos</button>
+    <button class="col-12 btn btn-outline-dark mt-1" routerLink="listar-alumnos">Cursos</button> -->
     
 </div>
